@@ -1,7 +1,12 @@
 # Capgemini Data Engineering Training
+->What is Week 0?
+Week 0 focuses on building a strong foundation in PySpark basics and SQL operations.
+It covers creating DataFrames, performing basic transformations, and querying data using both PySpark DataFrame API and SQL.
 
-Training materials organized by week and phase. Use the branch switcher to open each phase. Week-level notes are in [`week0/README.md`](week0/README.md).
-
-**Remote:** [github.com/Siddhardha2330/capgemini-data-engineering-training](https://github.com/Siddhardha2330/capgemini-data-engineering-training/)
+->What did they learn?
+Creating and working with PySpark DataFrames
+Using core methods like select, filter, groupBy, and count
+Performing data filtering, selection, and aggregation
+Understanding the difference between DataFrame API and SQL approaches
 
 
