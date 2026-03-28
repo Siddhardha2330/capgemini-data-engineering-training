@@ -9,5 +9,4 @@ Learned:
 - Writing equivalent queries in Spark SQL
 
 Challenges:
-- Confusion between SparkSession class and object creation
 - Switching between PySpark syntax and SQL syntax
