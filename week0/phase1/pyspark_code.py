@@ -14,10 +14,10 @@ customers = spark.createDataFrame([
 #Show all customers
 customers.show()
 #Show customers from Chennai
-customers.filter(col("city") == "Chennai").show()
+customers.filter(col("city")=="Chennai").show()
 #Show customers with age > 25
-customers.filter(col("age") > 25).show()
+customers.filter(col("age")>25).show()
 #Show only customer_name and city
-customers.select("customer_name", "city").show()
+customers.select("customer_name","city").show()
 #Count customers city-wise
 customers.groupBy("city").count().show()
