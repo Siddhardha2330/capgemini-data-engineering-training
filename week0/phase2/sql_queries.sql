@@ -1,35 +1,82 @@
--- =============================================================================
--- Phase 2 — Starter SQL (customers)
--- Run in your SQL client or Spark SQL after registering the table as needed.
--- =============================================================================
-
 CREATE TABLE customers (
-  customer_id INT,
-  customer_name VARCHAR(50),
-  city VARCHAR(50),
-  age INT
+    customer_id INT,
+    first_name STRING,
+    last_name STRING,
+    email STRING,
+    phone_number STRING,
+    address STRING,
+    city STRING,
+    state STRING,
+    zip_code STRING
 );
 
+CREATE TABLE sales (
+    sale_id INT,
+    customer_id INT,
+    product_id INT,
+    sale_date STRING,
+    quantity INT,
+    total_amount DOUBLE
+);
+
+
 INSERT INTO customers VALUES
-  (1, 'Ravi', 'Hyderabad', 25),
-  (2, 'Sita', 'Chennai', 32),
-  (3, 'Arun', 'Hyderabad', 28);
+(1,'John','Smith','john.smith@domain.com','555-0001','123 Elm St','Springfield','IL','62701'),
+(2,'Emma','Jones','emma.jones@webmail.com','555-0002','456 Oak St','Centerville','OH','45459'),
+(3,'Olivia','Brown','olivia.brown@outlook.com','555-0003','789 Pine St','Greenville','SC','29601');
 
--- -----------------------------------------------------------------------------
--- Guided exercises — write your queries below each prompt
--- -----------------------------------------------------------------------------
+INSERT INTO sales VALUES
+(1,1,1,'2024-01-15',2,39.98),
+(2,1,3,'2024-01-20',1,29.99),
+(3,2,2,'2024-01-16',1,25.0),
+(4,2,4,'2024-01-22',3,89.97),
+(5,3,5,'2024-01-17',2,49.98);
 
--- 1. Show all customers
--- SELECT * FROM customers;
 
--- 2. Show customers from Chennai
--- SELECT * FROM customers WHERE city = 'Chennai';
+-- 1. Total order amount for each customer
+SELECT customer_id,ROUND(SUM(total_amount),2) AS total_spent
+FROM sales
+GROUP BY customer_id;
 
--- 3. Show customers with age > 25
--- SELECT * FROM customers WHERE age > 25;
 
--- 4. Show only customer_name and city
--- SELECT customer_name, city FROM customers;
+-- 2. Top 3 customers by total spend
+SELECT customer_id, ROUND(SUM(total_amount),2) AS total_spent
+FROM sales
+GROUP BY customer_id
+ORDER BY total_spent DESC
+LIMIT 3;
 
--- 5. Count customers city-wise
--- SELECT city, COUNT(*) AS customer_count FROM customers GROUP BY city;
+
+-- 3. Customers with no orders
+SELECT c.*
+FROM customers c
+LEFT JOIN sales s
+ON c.customer_id=s.customer_id
+WHERE s.customer_id IS NULL;
+
+
+-- 4. City-wise total revenue
+SELECT c.city,ROUND(SUM(s.total_amount), 2) AS total_revenue
+FROM customers c
+JOIN sales s
+ON c.customer_id=s.customer_id
+GROUP BY c.city;
+
+-- 5. Average order amount per customer
+SELECT customer_id,ROUND(AVG(total_amount),2) AS avg_order_amount
+FROM sales
+GROUP BY customer_id;
+
+
+-- 6. Customers with more than one order
+SELECT customer_id,COUNT(*) AS order_count
+FROM sales
+GROUP BY customer_id
+HAVING COUNT(*)>1;
+
+
+-- 7. Sort customers by total spend descending
+SELECT customer_id,ROUND(SUM(total_amount),2) AS total_spent
+FROM sales
+GROUP BY customer_id
+ORDER BY total_spent DESC;
