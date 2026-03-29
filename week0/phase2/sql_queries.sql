@@ -1,20 +1,20 @@
 CREATE TABLE customers (
     customer_id INT,
-    first_name STRING,
-    last_name STRING,
-    email STRING,
-    phone_number STRING,
-    address STRING,
-    city STRING,
-    state STRING,
-    zip_code STRING
+    first_name VARCHAR(100),
+    last_name VARCHAR(100),
+    email VARCHAR(150),
+    phone_number VARCHAR(20),
+    address VARCHAR(200),
+    city VARCHAR(100),
+    state VARCHAR(50),
+    zip_code VARCHAR(20)
 );
 
 CREATE TABLE sales (
     sale_id INT,
     customer_id INT,
     product_id INT,
-    sale_date STRING,
+    sale_date DATE,
     quantity INT,
     total_amount DOUBLE
 );
@@ -40,7 +40,7 @@ GROUP BY customer_id;
 
 
 -- 2. Top 3 customers by total spend
-SELECT customer_id, ROUND(SUM(total_amount),2) AS total_spent
+SELECT customer_id,ROUND(SUM(total_amount),2) AS total_spent
 FROM sales
 GROUP BY customer_id
 ORDER BY total_spent DESC
@@ -56,11 +56,12 @@ WHERE s.customer_id IS NULL;
 
 
 -- 4. City-wise total revenue
-SELECT c.city,ROUND(SUM(s.total_amount), 2) AS total_revenue
+SELECT c.city,ROUND(SUM(s.total_amount),2) AS total_revenue
 FROM customers c
 JOIN sales s
 ON c.customer_id=s.customer_id
 GROUP BY c.city;
+
 
 -- 5. Average order amount per customer
 SELECT customer_id,ROUND(AVG(total_amount),2) AS avg_order_amount
