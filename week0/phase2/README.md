@@ -1,5 +1,6 @@
 # Phase 2 — SQL & PySpark
 Learned:
+
 DataFrame Creation → createDataFrame(), spark.read.csv()
 Viewing Data → show()
 View structure of DataFrame → printSchema()
@@ -17,6 +18,7 @@ Join DataFrames → join()
 SQL Integration → createOrReplaceTempView(), spark.sql()
 
 Challenges/Further Improvements:
+
 Understanding when to use → join() vs direct aggregation
 Handling data types correctly → cast()
 Avoiding precision issues → float vs double
