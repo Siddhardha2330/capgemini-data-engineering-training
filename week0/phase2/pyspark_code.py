@@ -1,52 +1,51 @@
-"""
-Phase 2 — Starter PySpark (customers)
-
-- Local script: `python pyspark_code.py` or `spark-submit pyspark_code.py`
-- Notebook: create `spark` first, then run everything from `build_customers` downward (skip `main()`).
-"""
-
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, sum, round, avg, count, desc
+
+spark = SparkSession.builder.appName("GuidedExercises").getOrCreate()
+
+customers = spark.read.option("header","true").csv("/samples/customers.csv")
+sales = spark.read.option("header","true").csv("/samples/sales.csv")
+
+customers = customers.dropna(subset=["customer_id"])
+sales = sales.dropna(subset=["customer_id"])
+
+customers = customers.withColumn("customer_id", col("customer_id").cast("int"))
+sales = sales.withColumn("customer_id", col("customer_id").cast("int"))
+sales = sales.withColumn("total_amount", col("total_amount").cast("double"))
+
+k = customers.join(sales, on="customer_id", how="inner")
 
 
-def build_customers(spark):
-    """Starter DataFrame + temp view `customers`."""
-    customers = spark.createDataFrame(
-        [
-            (1, "Ravi", "Hyderabad", 25),
-            (2, "Sita", "Chennai", 32),
-            (3, "Arun", "Hyderabad", 28),
-        ],
-        ["customer_id", "customer_name", "city", "age"],
-    )
-    customers.createOrReplaceTempView("customers")
-    customers.show()
-    return customers
+
+# 1.Total order amount for each customer
+k.groupBy("customer_id").agg(round(sum("total_amount"), 2).alias("total_spent")).show()
 
 
-def main():
-    spark = SparkSession.builder.appName("phase2_customers").getOrCreate()
-    try:
-        build_customers(spark)
-
-        # --- Guided exercises — uncomment and complete -------------------------
-        # 1. Show all customers
-        # spark.sql("SELECT * FROM customers").show()
-
-        # 2. Show customers from Chennai
-        # spark.sql("SELECT * FROM customers WHERE city = 'Chennai'").show()
-
-        # 3. Show customers with age > 25
-        # spark.sql("SELECT * FROM customers WHERE age > 25").show()
-
-        # 4. Show only customer_name and city
-        # spark.sql("SELECT customer_name, city FROM customers").show()
-
-        # 5. Count customers city-wise
-        # spark.sql("SELECT city, COUNT(*) AS cnt FROM customers GROUP BY city").show()
-
-    finally:
-        spark.stop()
+# 2.Top 3 customers by total spend
+k.groupBy("customer_id").agg(round(sum("total_amount"), 2).alias("total_spent")).orderBy(desc("total_spent")).limit(3).show()
 
 
-if __name__ == "__main__":
-    main()
+# 3.Customers with no orders
+customers.join(sales, on="customer_id", how="left_anti").show()
+
+
+# 4. City-wise total revenue
+k.groupBy("city") \
+ .agg(round(sum("total_amount"), 2).alias("total_revenue")) \
+ .show()
+
+
+# 5. Average order amount per customer
+k.groupBy("customer_id").agg(round(avg("total_amount"), 2).alias("avg_order_amount")).show()
+
+
+
+# 6. Customers with more than one order
+k.groupBy("customer_id").agg(count("sale_id").alias("order_count")) \
+ .filter(col("order_count") > 1).show()
+
+
+# 7. Sort customers by total spend descending
+k.groupBy("customer_id").agg(round(sum("total_amount"), 2).alias("total_spent")) \
+ .orderBy(desc("total_spent")) \
+ .show()
