@@ -48,7 +48,7 @@ Phase 2 — SQL & PySpark
 - Gained clarity on when to use SQL vs PySpark
 - Improved understanding of data cleaning before transformations
 
-🔹 Challenges / Further Improvements
+🔹 Challenges
 
 - Handling data types properly using cast()
 - Dealing with precision issues between float and double
