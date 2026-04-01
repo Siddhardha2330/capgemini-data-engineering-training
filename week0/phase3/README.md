@@ -1,28 +1,77 @@
-# Phase 3 — SQL & PySpark (customers)
+Phase 3 — ETL Pipeline using PySpark
 
-## Layout
+🔹 Objective
 
-| Path | Purpose |
-|------|---------|
-| `sql_queries.sql` | DDL, seed data, and guided SQL exercises |
-| `pyspark_code.py` | Starter `DataFrame` and guided PySpark / Spark SQL exercises |
-| `outputs/` | Save exports, CSVs, or screenshots from your runs here |
+- Build an end-to-end ETL pipeline using PySpark
+- Understand data flow from ingestion to final output
+- Apply transformations to generate business insights
 
-## Starter SQL tables
+🔹 Problem Summary
 
-- Table `customers` with columns: `customer_id`, `customer_name`, `city`, `age`
-- Three sample rows (Ravi, Sita, Arun)
+- Given sample datasets in different formats (CSV, JSON, Parquet)
+- Required to:
+   
+   - Read data from multiple sources
+   - Clean and preprocess data
+   - Perform transformations and aggregations
+   - Build a reusable ETL pipeline
 
-## Starter PySpark
+🔹 Approach
 
-- Same data as a `DataFrame`, registered as temp view `customers`, with `show()`
+- Extract:
+   
+   - Loaded datasets using spark.read() from /samples/
 
-## Guided exercises
+- Transform:
+   
+   - Cleaned data using dropna() and fillna()
+   - Filtered invalid records using filter()
+   - Converted data types using cast()
+   - Joined datasets using customer_id
+   - Applied aggregations using groupBy()
+   - Used window functions (rank()) for advanced analysis
 
-1. Show all customers  
-2. Show customers from Chennai  
-3. Show customers with age > 25  
-4. Show only `customer_name` and `city`  
-5. Count customers city-wise  
+- Load:
+   
+   - Displayed final outputs using .show()
+   - Converted SQL queries into PySpark logic
+   - Combined all steps into a reusable pipeline
 
-Work in `sql_queries.sql` and `pyspark_code.py`; optional answer snippets are included as comments for self-check.
+🔹 Key Transformations
+
+- Data Ingestion → spark.read()
+- Data Cleaning → dropna(), fillna()
+- Filtering → filter()
+- Type Casting → cast()
+- Joins → join()
+- Aggregation → groupBy(), sum(), count(), avg()
+- Column Operations → withColumn()
+- Window Functions → rank()
+
+🔹 Output
+
+- Daily sales summary
+- City-wise revenue
+- Repeat customers (>2 orders)
+- Highest spending customer in each city
+- Final reporting table with customer, city, total spend, and order count
+
+🔹 Learnings
+
+- Understood ETL workflow (Extract → Transform → Load)
+- Learned how to build reusable data pipelines
+- Gained experience working with multiple file formats
+- Learned how to convert SQL logic into PySpark
+- Understood use of window functions for ranking
+
+🔹 Challenges
+
+- Understanding full ETL pipeline structure
+- Debugging issues in joins and aggregations
+
+🔹 Files in this Folder
+
+- pyspark_code.py → ETL pipeline implementation
+- sql_queries.sql → SQL queries
+- phase3_problem_statement.pdf → Problem description
+- outputs/ → Output screenshots
