@@ -50,7 +50,6 @@ Phase 2 — SQL & PySpark
 
 🔹 Challenges / Further Improvements
 
-- Deciding when to use join() versus direct aggregation
 - Handling data types properly using cast()
 - Dealing with precision issues between float and double
 - Debugging unexpected outputs after joins or aggregations
