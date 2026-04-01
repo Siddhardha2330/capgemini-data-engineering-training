@@ -1,6 +1,7 @@
 Phase 2 — SQL & PySpark
 
 🔹 Objective
+
 -The main goal of this phase was to understand how data can be transformed using both SQL and PySpark. This includes combining datasets, applying filters, and generating useful insights from raw data.
 
 🔹 Problem Summary
