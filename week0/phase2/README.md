@@ -6,7 +6,7 @@ Phase 2 — SQL & PySpark
 
 🔹 Problem Summary
 
--We were given structured datasets containing customer and transaction-related information. The task was to:
+ We were given structured datasets containing customer and transaction-related information. The task was to:
   - Combine data from multiple sources
   - Apply filtering conditions
   - Perform aggregations
