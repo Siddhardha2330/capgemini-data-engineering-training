@@ -36,16 +36,19 @@
 
 - Output 1: All Customers
   - Displays all records from the dataset
+    
     <img width="1645" height="877" alt="image" src="https://github.com/user-attachments/assets/2c74e776-673d-46cb-af40-c3c83b67497d" />
 
 
 - Output 2: Customers from Chennai
   - Filters and shows only customers belonging to Chennai
+    
     <img width="1664" height="871" alt="image" src="https://github.com/user-attachments/assets/4dc2b77f-0af8-465e-bcaf-0c485e487c9b" />
 
 
 - Output 3: Customers with Age > 25
   - Shows customers whose age is greater than 25
+    
     <img width="1669" height="873" alt="image" src="https://github.com/user-attachments/assets/cfb8a5af-fffa-47db-970b-30c584fc875f" />
 
 
