@@ -1,10 +1,10 @@
-Phase 2 — SQL & PySpark
+# Phase 2 — SQL & PySpark
 
-🔹 Objective
+## 🔹 Objective
 
 -The main goal of this phase was to understand how data can be transformed using both SQL and PySpark. This includes combining datasets, applying filters, and generating useful insights from raw data.
 
-🔹 Problem Summary
+## 🔹 Problem Summary
 
  We were given structured datasets containing customer and transaction-related information. The task was to:
   - Combine data from multiple sources
@@ -12,7 +12,7 @@ Phase 2 — SQL & PySpark
   - Perform aggregations
   - Generate meaningful outputs for analysis
 
-🔹 Approach
+## 🔹 Approach
 
 - Loaded datasets into PySpark DataFrames using spark.read.csv()
 - Inspected data using show() and printSchema()
@@ -21,7 +21,7 @@ Phase 2 — SQL & PySpark
 - Applied transformations such as filtering, aggregation, and sorting
 - Also implemented the same logic using SQL queries for comparison
 
-🔹 Key Transformations
+## 🔹 Key Transformations
 
 - DataFrame Creation → createDataFrame(), spark.read.csv()
 - Viewing Data → show()
@@ -35,7 +35,7 @@ Phase 2 — SQL & PySpark
 - Formatting → round()
 - Joins → join()
 
-🔹 Output
+## 🔹 Output
 
   - Output 1: Customer-wise Total Spend
       - This output shows the total amount spent by each customer
@@ -56,20 +56,20 @@ Phase 2 — SQL & PySpark
         <img width="1671" height="866" alt="image" src="https://github.com/user-attachments/assets/5609ec7e-3e2b-45ee-b183-2718a898d7b3" />
 
 
-🔹 Learnings
+## 🔹 Learnings
 
 - Understood how PySpark DataFrames work compared to SQL tables
 - Learned how joins and aggregations are used in real-world scenarios
 - Gained clarity on when to use SQL vs PySpark
 - Improved understanding of data cleaning before transformations
 
-🔹 Challenges
+## 🔹 Challenges
 
 - Handling data types properly using cast()
 - Dealing with precision issues between float and double
 - Debugging unexpected outputs after joins or aggregations
 
-🔹 Files in this Folder
+## 🔹 Files in this Folder
 
 - solution.py → PySpark implementation
 - queries.sql → SQL solutions
