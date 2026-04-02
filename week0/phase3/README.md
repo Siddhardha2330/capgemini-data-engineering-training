@@ -6,14 +6,18 @@ Phase 3 — ETL Pipeline using PySpark
 - Understand data flow from ingestion to final output
 - Apply transformations to generate business insights
 
+
 🔹 Problem Summary
 
 - Given sample datasets in different formats (CSV, JSON, Parquet)
+  
  - Required to:
+   
     - Read data from multiple sources
     - Clean and preprocess data
     - Perform transformations and aggregations
     - Build a reusable ETL pipeline
+
 
 🔹 Approach
 
@@ -36,6 +40,7 @@ Phase 3 — ETL Pipeline using PySpark
   - Converted SQL queries into PySpark logic
   - Combined all steps into a reusable pipeline
 
+
 🔹 Key Transformations
 
 - Data Ingestion → spark.read()
@@ -47,6 +52,7 @@ Phase 3 — ETL Pipeline using PySpark
 - Column Operations → withColumn()
 - Window Functions → rank()
 - SQL Integration → spark.sql()
+
 
 🔹 Output
 
@@ -80,10 +86,12 @@ Phase 3 — ETL Pipeline using PySpark
 - Learned how to convert SQL logic into PySpark
 - Understood use of window functions for ranking
 
+
 🔹 Challenges Faced
 - Understanding full ETL pipeline structure
 - Handling null values and data type conversions
 - Debugging issues in joins and aggregations
+
 
 🔹 Files in this Folder
 
