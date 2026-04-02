@@ -1,4 +1,4 @@
--- Phase 2 — Customer Analytics (Clean SQL Version)
+-- Phase 2 — Customer Analytics 
 
 -- -----------------------------
 -- Create Tables
