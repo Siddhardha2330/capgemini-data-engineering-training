@@ -50,11 +50,27 @@ Phase 3 — ETL Pipeline using PySpark
 
 🔹 Output
 
-- Daily sales summary
-- City-wise revenue
-- Repeat customers (>2 orders)
-- Highest spending customer in each city
-- Final reporting table with customer, city, total spend, and order count
+   - Output 1: Daily Sales
+       - This output shows total sales aggregated for each date
+       - It verifies that grouping and aggregation using groupBy() and sum() are working correctly
+       - It also confirms that null values are handled before aggregation
+
+         <img width="1502" height="877" alt="image" src="https://github.com/user-attachments/assets/0e8e8a08-c04f-4a56-9779-f18e863328ed" />
+
+   - Output 2: City-wise Revenue
+       - This output represents total revenue generated for each city
+       - It confirms that the join between customers and sales datasets is performed correctly
+       - It validates aggregation of revenue at city level
+
+         <img width="1349" height="869" alt="image" src="https://github.com/user-attachments/assets/18be9972-72c7-41ef-9fbc-aab96aebf79b" />
+
+   - Output 3: Repeat Customers
+       - This output shows customers who have placed more than one order
+       - It verifies that aggregation using count() and filtering conditions are applied correctly
+       - It helps identify returning customers
+
+         <img width="1438" height="755" alt="image" src="https://github.com/user-attachments/assets/825414df-67d6-4960-ad5e-3277e3654b82" />
+
 
 🔹 Learnings
 
@@ -64,10 +80,9 @@ Phase 3 — ETL Pipeline using PySpark
 - Learned how to convert SQL logic into PySpark
 - Understood use of window functions for ranking
 
-🔹 Challenges / Further Improvements
+🔹 Challenges Faced
 - Understanding full ETL pipeline structure
 - Handling null values and data type conversions
-- Converting complex SQL queries into PySpark
 - Debugging issues in joins and aggregations
 
 🔹 Files in this Folder
