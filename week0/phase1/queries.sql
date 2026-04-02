@@ -1,30 +1,52 @@
+-- Phase 1 — SQL Basics 
 
-
+-- -----------------------------
+-- Create Table
+-- -----------------------------
 CREATE TABLE customers (
-  customer_id INT,
-  customer_name VARCHAR(50),
-  city VARCHAR(50),
-  age INT
+    customer_id INT,
+    customer_name VARCHAR(50),
+    city VARCHAR(50),
+    age INT
 );
 
+-- -----------------------------
+-- Insert Data
+-- -----------------------------
 INSERT INTO customers VALUES
-  (1, 'Ravi', 'Hyderabad', 25),
-  (2, 'Sita', 'Chennai', 32),
-  (3, 'Arun', 'Hyderabad', 28);
+    (1, 'Ravi', 'Hyderabad', 25),
+    (2, 'Sita', 'Chennai', 32),
+    (3, 'Arun', 'Hyderabad', 28);
 
+-- -----------------------------
+-- Query 1: Show All Customers
+-- -----------------------------
+SELECT *
+FROM customers;
 
+-- -----------------------------
+-- Query 2: Customers from Chennai
+-- -----------------------------
+SELECT *
+FROM customers
+WHERE city = 'Chennai';
 
--- 1. Show all customers
-SELECT * FROM customers;
+-- -----------------------------
+-- Query 3: Customers with Age > 25
+-- -----------------------------
+SELECT *
+FROM customers
+WHERE age > 25;
 
--- 2. Show customers from Chennai
-SELECT * FROM customers WHERE city='Chennai';
+-- -----------------------------
+-- Query 4: Select Name and City
+-- -----------------------------
+SELECT customer_name, city
+FROM customers;
 
--- 3. Show customers with age > 25
-SELECT * FROM customers WHERE age>25;
-
--- 4. Show only customer_name and city
-SELECT customer_name,city FROM customers;
-
--- 5. Count customers city-wise
-SELECT city, COUNT(*) AS customer_count FROM customers GROUP BY city;
+-- -----------------------------
+-- Query 5: City-wise Customer Count
+-- -----------------------------
+SELECT city, COUNT(*) AS customer_count
+FROM customers
+GROUP BY city;
