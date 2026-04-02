@@ -68,4 +68,6 @@
 ## 🔹 Files in this Folder
 
 - solution.py → PySpark implementation
-- README.md → Explanation of the phase
+- queries.sql → SQL solutions
+- phase1_problem_statement.pdf → Problem description
+- outputs/ → Output screenshots
