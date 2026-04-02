@@ -39,6 +39,7 @@ total_spent_df = df.groupBy("customer_id") \
 # -----------------------------
 
 # 1. Total order amount per customer
+print("Total order amount per customer")
 total_spent_df.show()
 
 # 2. Top 3 customers by total spend
