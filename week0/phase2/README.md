@@ -40,14 +40,19 @@ Phase 2 — SQL & PySpark
   - Output 1: Customer-wise Total Spend
       - This output shows the total amount spent by each customer
       - It verifies that aggregations using groupBy() and sum() are working correctly
+        
         <img width="1339" height="872" alt="image" src="https://github.com/user-attachments/assets/6bff33f8-aa46-4412-9cfb-5abb02c5505b" />
+        
   - Output 2: Filtered High-Value Customers
       - This output displays the top three customers who spent more money
       - It confirms that filtering logic using filter() is correctly applied
+        
         <img width="1247" height="849" alt="image" src="https://github.com/user-attachments/assets/d37ad848-0b0d-4efb-9a7a-bff3073d3ae5" />
+        
   - Output 3: Customers with No Orders
      - This output shows customers who do not have any matching records in the sales dataset
      - It verifies that the left_anti join correctly filters out customers with orders
+       
         <img width="1671" height="866" alt="image" src="https://github.com/user-attachments/assets/5609ec7e-3e2b-45ee-b183-2718a898d7b3" />
 
 
