@@ -1,4 +1,4 @@
-# Phase 1 — SQL to PySpark (Clean Version)
+# Phase 1 — SQL to PySpark 
 
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col
