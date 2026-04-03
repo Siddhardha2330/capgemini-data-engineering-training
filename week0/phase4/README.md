@@ -118,6 +118,8 @@
 
 ## 🔹 Project Structure
 
-- `solution.py` → ETL pipeline implementation  
-- `outputs/` → result data  
-- `README.md` → project explanation  
+- sql_queries.sql → SQL queries
+- solution.py → PySpark implementation
+- phase4_data_quality_challenge.pdf → problem statement
+- outputs/ → result screenshots
+- README.md → project explanation 
