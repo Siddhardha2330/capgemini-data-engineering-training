@@ -96,7 +96,8 @@
 
 ## 🔹 Files in this Folder
 
-- pyspark_code.py → ETL pipeline implementation
 - sql_queries.sql → SQL queries
-- phase3_problem_statement.pdf → Problem description
-- outputs/ → Output screenshots
+- solution.py → PySpark implementation
+- phase3_problem_statement.pdf → problem statement
+- outputs/ → result screenshots
+- README.md → project explanation 
