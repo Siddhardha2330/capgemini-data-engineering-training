@@ -114,6 +114,6 @@
 
 - sql_queries.sql → SQL queries
 - solution.py → PySpark implementation
-- phase4a_data_quality_challenge.pdf → problem statement
+- phase4a_problem_statement.pdf → problem statement
 - outputs/ → result screenshots
 - README.md → project explanation 
