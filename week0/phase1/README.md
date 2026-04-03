@@ -67,7 +67,8 @@
 
 ## 🔹 Files in this Folder
 
+- sql_queries.sql → SQL queries
 - solution.py → PySpark implementation
-- queries.sql → SQL solutions
-- phase1_problem_statement.pdf → Problem description
-- outputs/ → Output screenshots
+- phase1_problem_statement.pdf → problem statement
+- outputs/ → result screenshots
+- README.md → project explanation 
