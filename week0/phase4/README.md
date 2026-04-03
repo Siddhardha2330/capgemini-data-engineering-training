@@ -120,6 +120,6 @@
 
 - sql_queries.sql → SQL queries
 - solution.py → PySpark implementation
-- phase4_data_quality_challenge.pdf → problem statement
+- phase4_problem_statement.pdf → problem statement
 - outputs/ → result screenshots
 - README.md → project explanation 
