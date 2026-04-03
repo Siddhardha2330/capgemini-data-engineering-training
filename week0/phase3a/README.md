@@ -81,7 +81,8 @@
 - Validation is necessary in every pipeline
 
 ## 🔹 Project Structure
+
 - solution.py → PySpark implementation
-- phase3a_data_quality_challenge (1).pdf → problem statement
+- phase3a_problem_statement.pdf → problem statement
 - outputs/ → result screenshots
-- README.md → project explanation
+- README.md → project explanation 
