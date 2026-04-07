@@ -186,7 +186,7 @@
 
 ## 🔹 Project Structure
 - sql_queries.sql → SQL queries
-- solution.py → PySpark implementation
-- phase4_problem_statement.pdf → problem statement
+- phase5_notebook.ipynb → PySpark implementation
+- phase5_problem_statement.pdf → problem statement
 - outputs/ → result screenshots
 - README.md → project explanation 
