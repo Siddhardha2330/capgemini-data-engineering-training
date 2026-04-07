@@ -183,34 +183,8 @@ GROUP BY d.dept_name;
 ---
 
 ## 🔹 Project Structure
+- README.md -> About joins_queries.sql
+- joins_queries.sql -> Queries
 
-- day 2 SQL Joins.dbquery.ipynb → SQL queries file
-- README_SQL_Joins.md → Project documentation
-- Database: workspace.default
-- Tables: employees, departments, projects
 
 ---
-
-## 🔹 How to Run
-
-1. Open "day 2 SQL Joins.dbquery.ipynb" in SQL Editor
-2. Set catalog to `workspace` and schema to `default`
-3. Run statements 1-6 to create tables
-4. Run statement 7 containing all 30 queries
-5. Each query is independent and can run separately
-
----
-
-## 🔹 Query Summary
-
-**Total Queries**: 30
-
-**By Join Type:**
-- Self-Joins: 5 queries
-- LEFT JOIN: 12 queries
-- INNER JOIN: 4 queries
-- Multiple Joins: 3 queries
-- NULL Handling: 4 queries
-- Aggregation: 2 queries
-
-**Topics Covered**: INNER JOIN, LEFT JOIN, Self-Join, Multiple Joins, NULL Handling
