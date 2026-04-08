@@ -1,4 +1,4 @@
-## capgemini-data-engineering-training
+capgemini-data-engineering-training
 
 # PySpark Learning Project Structure
 
