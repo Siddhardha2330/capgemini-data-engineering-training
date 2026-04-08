@@ -1,14 +1,12 @@
-# Capgemini Data Engineering Training
+# PySpark Learning Project Structure
 
-# 📊 PySpark Learning Project Structure
-
-This repository documents my hands-on learning journey in **PySpark**, organized in a structured and progressive manner for clarity and scalability.
+This repository documents my hands-on learning journey in PySpark, organized in a structured and progressive manner for clarity and scalability.
 
 ---
 
-## 📁 Folder Overview
+## Folder Overview
 
-### 🔹 `week0/`
+### `week0/`
 - Contains initial setup, environment configuration, and basic PySpark exploration.
 - Focus:
   - SparkSession setup  
@@ -17,10 +15,10 @@ This repository documents my hands-on learning journey in **PySpark**, organized
 
 ---
 
-### 🔹 `week1/`
+### `week1/`
 This folder represents structured learning for Week 1.
 
-#### 📂 `day1/`
+#### `day1/`
 - Covers foundational PySpark concepts.
 - Topics include:
   - DataFrame creation  
@@ -29,16 +27,16 @@ This folder represents structured learning for Week 1.
 
 ---
 
-#### 📂 `day2/`
+#### `day2/`
 Focuses on intermediate-level data operations.
 
-##### 📁 `GroupBy/`
+##### `GroupBy/`
 - Covers:
   - Aggregations (`sum`, `avg`, `count`)  
   - Group-based analysis  
 - Demonstrates extracting insights from grouped data  
 
-##### 📁 `Joins/`
+##### `Joins/`
 - Covers:
   - Inner Join  
   - Left Join  
@@ -48,7 +46,7 @@ Focuses on intermediate-level data operations.
 
 ---
 
-## 📄 README Files
+## README Files
 - Each folder contains its own `README.md` explaining:
   - Problem statements  
   - Approach used  
@@ -56,7 +54,7 @@ Focuses on intermediate-level data operations.
 
 ---
 
-## 🚀 Key Highlights
+## Key Highlights
 - Structured day-wise learning  
 - Hands-on PySpark implementation  
 - Real-world data transformation scenarios  
@@ -64,7 +62,7 @@ Focuses on intermediate-level data operations.
 
 ---
 
-## 💡 Purpose
+## Purpose
 This project demonstrates:
 - Ability to work with PySpark for data processing  
 - Strong understanding of transformations and aggregations  
@@ -73,6 +71,5 @@ This project demonstrates:
 
 ---
 
-## 📌 Note
+## Note
 This repository is continuously updated as I progress in my PySpark learning journey.
-
