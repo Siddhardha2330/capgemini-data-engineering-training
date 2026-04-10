@@ -151,3 +151,151 @@ LEFT ANTI JOIN student_email_mapping sem
   ON sub.email = sem.email
 ORDER BY sub.timestamp DESC;
 
+
+-- Phase 3: Duplicate Detection
+
+-- 1. Identify duplicates
+
+select sem.student_id,
+sem.student_name,
+sub.email,
+sub.timestamp,
+row_number() over (
+partition by sem.student_id 
+order by sub.timestamp
+) as rn
+from submission sub
+join student_email_mapping sem
+on lower(trim(sub.email)) = sem.email
+order by sem.student_id,sub.timestamp;
+
+
+
+-- 2. Keep first submission, mark duplicates
+
+select student_id,
+student_name,
+email,
+timestamp,
+case 
+when rn=1 then 'First'
+else 'Duplicate'
+end as status
+from (
+
+select sem.student_id,
+sem.student_name,
+sub.email,
+sub.timestamp,
+row_number() over (
+partition by sem.student_id 
+order by sub.timestamp
+) as rn
+from submission sub
+join student_email_mapping sem
+on lower(trim(sub.email)) = sem.email
+
+) t
+order by student_id,timestamp;
+
+
+
+-- 3. GROUP BY vs WINDOW FUNCTION
+
+
+-- GROUP BY approach (summary only)
+select sem.student_id,
+sem.student_name,
+count(sub.email) as submission_count,
+min(sub.timestamp) as first_submission,
+max(sub.timestamp) as last_submission
+from submission sub
+join student_email_mapping sem
+on lower(trim(sub.email)) = sem.email
+group by sem.student_id,sem.student_name
+having count(sub.email)>1
+order by submission_count desc;
+
+
+
+-- WINDOW FUNCTION approach (keeps all rows)
+
+select sem.student_id,
+sem.student_name,
+sub.email,
+sub.timestamp,
+row_number() over (
+partition by sem.student_id 
+order by sub.timestamp
+) as rn,
+count(*) over (
+partition by sem.student_id
+) as total_submissions
+from submission sub
+join student_email_mapping sem
+on lower(trim(sub.email)) = sem.email
+order by sem.student_id,sub.timestamp;
+
+
+-- Phase 4: Advanced Insights
+
+
+-- 1. Count submissions per student
+select s.regno,
+s.student_name,
+count(sub.email) as submission_count,
+max(sub.timestamp) as last_submission_time
+from student s
+left join student_email_mapping sem 
+on s.regno = sem.student_id
+left join submission_normalized sub 
+on sem.email = sub.email
+group by s.regno,s.student_name
+order by submission_count desc;
+
+
+
+-- 2. Find students using both emails
+select student_id,
+student_name
+from student_email_mapping
+where email in (select email from submission_normalized)
+group by student_id,student_name
+having count(distinct email_type)=2
+order by student_id;
+
+
+
+-- 3. Final classification
+
+with student_count as (
+select s.regno,
+s.student_name,
+count(sub.email) as submission_count
+from student s
+left join student_email_mapping sem 
+on s.regno = sem.student_id
+left join submission_normalized sub 
+on sem.email = sub.email
+group by s.regno,s.student_name
+)
+
+select regno,
+student_name,
+submission_count,
+case 
+when submission_count=0 then 'Not Submitted'
+when submission_count=1 then 'Submitted'
+else 'Duplicate'
+end as status
+from student_count
+
+union all
+
+select null,
+'Unknown',
+count(*) as submission_count,
+'Invalid'
+from submission_normalized sub
+left anti join student_email_mapping sem 
+on sub.email = sem.email;
