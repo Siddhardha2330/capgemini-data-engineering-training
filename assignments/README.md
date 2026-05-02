@@ -10,10 +10,8 @@ The numbering below follows the date sequence from the files you shared.
 
 - Date: `2026-04-07`
 - Prompt files:
-  - `Assignment_1.docx`
   - `SQL_Case_When_problem_statement.pdf`
 - Solution:
-  - `employee_case_when_solution.ipynb`
   - `SQL_Case_When.sql`
 - Reused from:
   - `week1/day3/SQL_Case_When.sql`
@@ -22,9 +20,8 @@ The numbering below follows the date sequence from the files you shared.
 
 - Date: `2026-04-07`
 - Prompt files:
-  - `Assignment_2.docx`
+  - `Assignment_2.pdf`
 - Solution:
-  - `customer_usage_case_when_solution.ipynb`
   - `customer_usage_case_when.sql`
 - Status:
   - Created in `assignments/assignment2/`
@@ -33,10 +30,8 @@ The numbering below follows the date sequence from the files you shared.
 
 - Date: `2026-04-07` to `2026-04-08`
 - Prompt files:
-  - `Assignment_3.docx`
   - `sql_groupby_problem_statement.pdf`
 - Solution:
-  - `groupby_solution.ipynb`
   - `groupby_queries.sql`
 - Reused from:
   - `week1/day2/groupby_queries.sql`
@@ -45,10 +40,8 @@ The numbering below follows the date sequence from the files you shared.
 
 - Date: `2026-04-08`
 - Prompt files:
-  - `Joins.docx`
   - `sql_joins_problem_statement.pdf`
 - Solution:
-  - `joins_solution.ipynb`
   - `joins_queries.sql`
 - Reused from:
   - `week1/day2/joins_queries.sql`
@@ -59,7 +52,6 @@ The numbering below follows the date sequence from the files you shared.
 - Prompt files:
   - `SQL_window_functions_problem_statement.pdf`
 - Solution:
-  - `window_functions_solution.ipynb`
   - `Window_Functions.sql`
 - Reused from:
   - `week1/day3/Window_Functions.sql`
@@ -69,9 +61,7 @@ The numbering below follows the date sequence from the files you shared.
 - Date: `2026-04-09`
 - Prompt files:
   - `Advanced_SQL_Assignment_Capgemini.pdf`
-  - `databricks_student_assignment.sql`
 - Solution:
-  - `student_submission_analysis_solution.ipynb`
   - `student_submission_analysis.sql`
 - Reused from:
   - `week1/day4/SQL_practice_on_real_data.sql`

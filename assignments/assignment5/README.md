@@ -10,7 +10,6 @@
 
 ## Solution Files
 
-- `window_functions_solution.ipynb`
 - `Window_Functions.sql`
 
 ## What This Assignment Covers

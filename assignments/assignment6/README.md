@@ -7,11 +7,9 @@
 ## Prompt Files
 
 - `Advanced_SQL_Assignment_Capgemini.pdf`
-- `databricks_student_assignment.sql`
 
 ## Solution Files
 
-- `student_submission_analysis_solution.ipynb`
 - `student_submission_analysis.sql`
 
 ## What This Assignment Covers

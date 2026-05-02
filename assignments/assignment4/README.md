@@ -6,12 +6,10 @@
 
 ## Prompt Files
 
-- `Joins.docx`
 - `sql_joins_problem_statement.pdf`
 
 ## Solution Files
 
-- `joins_solution.ipynb`
 - `joins_queries.sql`
 
 ## What This Assignment Covers

@@ -6,12 +6,10 @@
 
 ## Prompt Files
 
-- `Assignment_3.docx`
 - `sql_groupby_problem_statement.pdf`
 
 ## Solution Files
 
-- `groupby_solution.ipynb`
 - `groupby_queries.sql`
 
 ## What This Assignment Covers

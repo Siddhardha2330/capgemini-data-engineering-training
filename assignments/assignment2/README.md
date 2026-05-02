@@ -6,11 +6,10 @@
 
 ## Prompt Files
 
-- `Assignment_2.docx`
+- `Assignment_2.pdf`
 
 ## Solution Files
 
-- `customer_usage_case_when_solution.ipynb`
 - `customer_usage_case_when.sql`
 
 ## What This Assignment Covers
@@ -24,4 +23,4 @@
 
 ## Solution Source
 
-There was no completed matching solution for this prompt in the repo, so the SQL and notebook were created in this folder.
+There was no completed matching solution for this prompt in the repo, so the SQL solution was created in this folder.

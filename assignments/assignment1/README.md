@@ -6,12 +6,10 @@
 
 ## Prompt Files
 
-- `Assignment_1.docx`
 - `SQL_Case_When_problem_statement.pdf`
 
 ## Solution Files
 
-- `employee_case_when_solution.ipynb`
 - `SQL_Case_When.sql`
 
 ## What This Assignment Covers
