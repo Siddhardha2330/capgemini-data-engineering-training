@@ -1,0 +1,90 @@
+Flipkart Data Pipeline (Medallion Architecture)
+1. SAMPLE DATASET (RAW - BRONZE INPUT)
+
+data = [
+    (101, "C001", "Laptop", "Electronics", "Hyderabad", "2024-01-01", "50000", 1),
+    (102, "C002", "Mobile", "Electronics", "Chennai", "2024-01-02", None, 2),
+    (103, "C001", "Tablet", "Electronics", "Hyderabad", "2024-01-03", "20000", 1),
+    (104, "C003", "Laptop", "Electronics", "Delhi", "2024-01-04", "55000", 1),
+    (105, "C002", "Mobile", "Electronics", "Chennai", "2024-01-05", "18000", 1),
+    (106, "C004", "Watch", "Accessories", "Mumbai", "2024-01-06", "8000", 1),
+    (103, "C001", "Tablet", "Electronics", "Hyderabad", "2024-01-07", "22000", 1),  # updated record
+    (107, "C005", "Headphones", "Accessories", None, "2024-01-08", "3000", 1),
+    (108, "C006", "Laptop", "Electronics", "Bangalore", "2024-01-09", "-45000", 1),  # invalid amount
+    (109, "C007", "Mobile", "Electronics", "Chennai", "2024-01-10", "15000", 2),
+    (109, "C007", "Mobile", "Electronics", "Chennai", "2024-01-10", "15000", 2)   # duplicate
+]
+
+columns = ["order_id", "customer_id", "product", "category", "city", "date", "amount", "quantity"]
+2. BUSINESS REQUIREMENTS 
+
+Requirement 1: Sales Analysis
+Total sales by product
+Total sales by category
+Total sales by city
+
+Requirement 2: Customer Insights
+Number of orders per customer
+Top customers based on spending
+
+Requirement 3: Data Quality
+No NULL values in critical columns
+No duplicate orders
+No negative sales
+
+Requirement 4: Latest Data Only
+If same order_id appears multiple times → keep latest record
+
+Requirement 5: Dashboard Ready Data
+Data should be clean and aggregated
+Ready for tools like Power BI
+
+3. BRONZE LAYER (What Students Should Do)
+
+Tasks:
+Load dataset
+Store in Delta format
+Use append mode
+
+4. SILVER LAYER (What Students Should Do)
+Data Cleaning
+Handle NULL values (amount, city)
+Decide: fill or remove
+
+Data Type Fix
+Convert amount → integer
+Convert date → proper date format
+
+Remove Duplicates
+Identify duplicate order_id
+Keep only one record
+
+Handle Updates
+Same order_id appears multiple times
+
+Keep latest record based on date
+Data Validation
+
+Remove negative amounts
+Ensure valid data
+Standardization
+
+Format city names (optional)
+
+5. GOLD LAYER (What Students Should Do)
+
+Create business-level insights
+
+Tasks:
+Aggregations
+Total sales by product
+Total sales by category
+Total sales by city
+
+Customer Metrics
+Total orders per customer
+Total spending per customer
+
+Top Analysis
+Top selling product
+Top customer

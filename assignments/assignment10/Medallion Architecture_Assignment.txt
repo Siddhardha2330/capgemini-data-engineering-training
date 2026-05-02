@@ -1,0 +1,234 @@
+Medallion Architecture
+
+Ask students:
+
+“Can we directly use raw data for reporting?”
+
+Pause. Let them think.
+
+👉 Then say:
+
+No — because raw data is:
+
+messy
+incomplete
+inconsistent
+🔥 Step 2: Introduce the Flow
+
+Draw this on board:
+
+Raw Data → Clean Data → Business Data
+   ↓           ↓            ↓
+ Bronze      Silver        Gold
+
+Then explain slowly:
+
+👉 This is called Medallion Architecture
+
+👉 It is used in:
+
+Data Engineering
+Data Warehousing
+Modern Data Lakes
+🎯 Core Idea
+
+“We don’t transform data in one step.
+We improve it layer by layer.”
+
+🥉 STEP 3: BRONZE LAYER (Raw Data Layer)
+🧠 Explain Concept
+
+Say:
+
+👉 Bronze is the entry point of data
+
+👉 Whatever data comes:
+
+API
+CSV
+Logs
+
+We store it as-is
+
+❓ Ask Students:
+
+“Should we clean data here?”
+
+Answer: No
+
+Why?
+
+Because:
+
+We want original data for debugging
+We don’t want to lose information
+It acts as backup
+📊 Show Example
+id | name | salary | date
+1  | A    | 5000   | 2024-01-01
+2  | NULL | NULL   | 2024-01-02
+
+👉 Highlight:
+
+NULL values
+Wrong formats
+💻 Code Explanation
+bronze_df = spark.read.csv("input/orders.csv", header=True)
+
+👉 This means:
+
+Read raw data
+No changes
+bronze_df.write.format("delta") \
+    .mode("append") \
+    .save("delta/bronze/orders")
+
+👉 Explain:
+
+Stored in Delta format
+Append mode → we keep adding data
+No overwrite
+🎤 Teaching Line:
+
+“Bronze = Raw data. Don’t touch it.”
+
+🥈 STEP 4: SILVER LAYER (Cleaned Layer)
+🧠 Explain Concept
+
+Say:
+
+👉 Silver is where real work starts
+
+👉 Here we:
+
+clean
+standardize
+fix issues
+❓ Ask Students:
+
+“What problems did we see in Bronze?”
+
+Expected:
+
+NULL values
+wrong data types
+duplicates
+🎯 Tasks Breakdown
+1. Type Casting
+.withColumn("salary", col("salary").cast("int"))
+Convert string → integer
+2. NULL Handling
+when(col("salary").isNull(), 1000)
+Replace missing values
+3. Date Formatting
+.withColumn("date", to_date(col("date")))
+Standardize date
+4. Deduplication
+.dropDuplicates(["id"])
+Remove duplicate records
+Full Flow
+silver_df = bronze_df \
+    .withColumn("salary", col("salary").cast("int")) \
+    .withColumn("salary",
+        when(col("salary").isNull(), 1000)
+        .otherwise(col("salary"))
+    ) \
+    .withColumn("date", to_date(col("date"))) \
+    .dropDuplicates(["id"])
+💾 Save Silver
+silver_df.write.format("delta") \
+    .mode("overwrite") \
+    .save("delta/silver/orders")
+
+👉 Explain:
+
+Cleaned data replaces old version
+Trusted dataset
+Teaching Line:
+
+“Silver = Clean + Reliable + Trusted data”
+
+🥇 STEP 5: GOLD LAYER (Business Layer)
+🧠 Explain Concept
+
+Say:
+
+👉 Gold layer is for:
+
+business users
+dashboards
+reporting
+
+No raw data here
+Only insights
+
+❓ Ask:
+
+“What does business want?”
+
+👉 Answer:
+
+Total sales
+Revenue
+KPIs
+📊 Example
+product | total_sales
+Laptop  | 100000
+Mobile  | 50000
+💻 Code Explanation
+from pyspark.sql.functions import sum
+
+gold_df = silver_df.groupBy("product") \
+    .agg(sum("salary").alias("total_sales"))
+
+👉 Explain:
+
+Group data
+Aggregate values
+Create business metrics
+Save Gold
+gold_df.write.format("delta") \
+    .mode("overwrite") \
+    .save("delta/gold/sales")
+
+
+“Gold = Business insights (final output)”
+
+🔄 STEP 6: COMPLETE FLOW (Very Important)
+
+Draw this clearly:
+
+CSV / API Data
+     ↓
+Bronze (Raw, no changes)
+     ↓
+Silver (Cleaned, validated)
+     ↓
+Gold (Aggregated, business-ready)
+     ↓
+Dashboard / Power BI
+🧠 STEP 7: REAL-WORLD ANALOGY
+🍽️ Restaurant Example
+Bronze → Raw ingredients
+Silver → Cooked food
+Gold → Final dish served
+🎯 FINAL UNDERSTANDING
+Bronze:
+Raw
+Untouched
+Append-only
+Silver:
+Clean
+Structured
+Trusted
+Gold:
+Aggregated
+Business-ready
+Used for reporting
+🎤 HOW YOU SHOULD END THIS TOPIC
+
+Say:
+
+“In real-world projects, we never directly use raw data.
+We refine it step by step — Bronze → Silver → Gold —
+so that business decisions are based on clean and reliable data.”
